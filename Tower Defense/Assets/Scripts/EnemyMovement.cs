@@ -1,29 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
-{
-    [SerializeField]List<Waypoint> path;
+public class EnemyMovement : MonoBehaviour {
 
-    void Start()
-    {
-        StartCoroutine(FollowPath());
-    }
+	// Use this for initialization
+	void Start () {
+        Pathfinder pathfinder = FindObjectOfType<Pathfinder>();
+        var path = pathfinder.GetPath();
+        StartCoroutine(FollowPath(path));
+	}
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator FollowPath(List<Waypoint> path)
     {
-        
-    }
-
-    IEnumerator FollowPath()
-    {
+        print("Starting patrol..."); 
         foreach (Waypoint waypoint in path)
         {
             transform.position = waypoint.transform.position;
-            print("I am at " + waypoint);
             yield return new WaitForSeconds(1f);
         }
+        print("Ending patrol");
     }
 }
