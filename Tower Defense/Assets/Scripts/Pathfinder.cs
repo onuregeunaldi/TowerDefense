@@ -46,8 +46,8 @@ public class Pathfinder : MonoBehaviour {
         Waypoint previous = endWaypoint.exploredFrom;
         while (previous != startWaypoint)
         {
-            previous = previous.exploredFrom;
             SetAsPath(previous);
+            previous = previous.exploredFrom;
         }
 
         SetAsPath(startWaypoint);       
@@ -58,6 +58,7 @@ public class Pathfinder : MonoBehaviour {
     {
         path.Add(waypoint);
         waypoint.isPlacable = false;
+        waypoint.SetTopColor(Color.green);
     }
 
     private void BreadthFirstSearch()

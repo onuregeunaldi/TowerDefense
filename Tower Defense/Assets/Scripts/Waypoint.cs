@@ -30,14 +30,20 @@ public class Waypoint : MonoBehaviour
         );
     }
 
+    public void SetTopColor(Color color)
+    {
+        MeshRenderer topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
+        topMeshRenderer.material.color = color;
+    }
+
     void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))
         {
             if (isPlacable)
             {
-                print(gameObject.name + " Tower placement");
                 Instantiate(towerPrefab, transform.position, Quaternion.identity);
+                isPlacable = false;
             }
             else
             {

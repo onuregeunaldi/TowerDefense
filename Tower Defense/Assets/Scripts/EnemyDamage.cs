@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    [SerializeField] int hitPoints = 10;
+    public int hitPoints = 10;
+    public int currentHealth;
+
+    public HealthBar healthBar;
 
     void Start()
     {
-        
+        currentHealth = hitPoints;
+        healthBar.SetMaxHealth(hitPoints);
     }
 
-    // Update is called once per frame
+    // Update is called once per frames
     void Update()
     {
         
@@ -21,7 +25,7 @@ public class EnemyDamage : MonoBehaviour
     {
         print("HIT");
         ProcessHit();
-        if(hitPoints <= 0)
+        if(currentHealth <= 0)
         {
             KillEnemy();
         }
@@ -29,7 +33,10 @@ public class EnemyDamage : MonoBehaviour
 
     void ProcessHit()
     {
-        hitPoints -= 1;
+        //hitPoints -= 1;
+        currentHealth -= 1;
+        healthBar.SetHealt(currentHealth);
+        
     }
 
     void KillEnemy()
