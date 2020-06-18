@@ -7,6 +7,9 @@ public class EnemyDamage : MonoBehaviour
     public int hitPoints = 10;
     public int currentHealth;
 
+    [SerializeField] ParticleSystem hitPartical;
+    [SerializeField] ParticleSystem deadPartical;
+
     public HealthBar healthBar;
 
     void Start()
@@ -33,14 +36,18 @@ public class EnemyDamage : MonoBehaviour
 
     void ProcessHit()
     {
-        //hitPoints -= 1;
         currentHealth -= 1;
         healthBar.SetHealt(currentHealth);
+        hitPartical.Play();
         
     }
 
     void KillEnemy()
     {
+        var vfx = Instantiate(deadPartical, transform.position, Quaternion.identity);
+        vfx.Play();
+        Destroy(vfx.gameObject, vfx.main.duration);
+
         Destroy(gameObject);
     }
 }
