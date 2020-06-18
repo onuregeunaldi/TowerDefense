@@ -11,6 +11,7 @@ public class EnemyDamage : MonoBehaviour
     [SerializeField] ParticleSystem deadPartical;
 
     public HealthBar healthBar;
+    public EnemySpawner enemySpawner;
 
     void Start()
     {
@@ -46,8 +47,7 @@ public class EnemyDamage : MonoBehaviour
     {
         var vfx = Instantiate(deadPartical, transform.position, Quaternion.identity);
         vfx.Play();
-        Destroy(vfx.gameObject, vfx.main.duration);
-
+        Destroy(vfx.gameObject, vfx.main.duration); 
         Destroy(gameObject);
     }
 }

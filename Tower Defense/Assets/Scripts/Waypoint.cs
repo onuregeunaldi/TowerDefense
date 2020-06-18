@@ -10,6 +10,7 @@ public class Waypoint : MonoBehaviour
     public bool isPlacable = true;
 
     [SerializeField] Tower towerPrefab;
+    [SerializeField] Tower bigTowerPrefab;
 
     Vector2Int gridPos;
 
@@ -20,7 +21,6 @@ public class Waypoint : MonoBehaviour
         return gridSize;
     }
 	
-    // consider setting own color in Update()
 
     public Vector2Int GetGridPos()
     {
@@ -40,16 +40,31 @@ public class Waypoint : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (isPlacable)
+            if (isPlacable && EnemySpawner.coin >= 10)
             {
                 Instantiate(towerPrefab, transform.position, Quaternion.identity);
                 isPlacable = false;
+                EnemySpawner.coin = EnemySpawner.coin - 10;
             }
             else
             {
                 print("Can not place here");
             }
             
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (isPlacable && EnemySpawner.coin >= 20)
+            {
+                Instantiate(bigTowerPrefab, transform.position, Quaternion.identity);
+                isPlacable = false;
+                EnemySpawner.coin = EnemySpawner.coin - 20;
+            }
+            else
+            {
+                print("Can not place here");
+            }
+
         }
 
     }

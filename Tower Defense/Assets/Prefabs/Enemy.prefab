@@ -415,7 +415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goalPartical: {fileID: 198537984209914932, guid: 2cb94147ff0f549dea8acf0c319401ae,
     type: 3}
-  enemySpeed: 0.25
+  enemySpeed: 0.75
 --- !u!114 &421647814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,12 +428,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e8971c5308641d1a74f435cf7c9180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 20
+  hitPoints: 10
   currentHealth: 0
   hitPartical: {fileID: 3284399699204657019}
   deadPartical: {fileID: 198537984209914932, guid: 1a51bfda454239a41afb7dee687c6ac0,
     type: 3}
   healthBar: {fileID: 183220789}
+  enemySpawner: {fileID: 7040798280715427815, guid: 806170760ff4a4e4bbbfdcd3e574c24f,
+    type: 3}
 --- !u!54 &515050332
 Rigidbody:
   m_ObjectHideFlags: 0

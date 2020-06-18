@@ -8,11 +8,8 @@ public class Tower : MonoBehaviour
     [SerializeField] Transform objectToPan;
     Transform targetEnemy;
 
-    [SerializeField] float attackRange = 10f;
+    public float attackRange = 30f;
     [SerializeField] ParticleSystem projectileParticle;
-
-
-
 
     // Update is called once per frame
     void Update()
@@ -77,5 +74,10 @@ public class Tower : MonoBehaviour
     {
         var emissionModule = projectileParticle.emission;
         emissionModule.enabled = isActive;
+    }
+
+    public void UpgradeTower()
+    {
+
     }
 }
