@@ -50,7 +50,7 @@ MeshCollider:
   m_GameObject: {fileID: 1007889891946264}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 4402814700308664}
   - component: {fileID: 114328380247001504}
   - component: {fileID: 114640897485890764}
+  - component: {fileID: 6619418767226619932}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -158,6 +159,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isExplored: 0
   exploredFrom: {fileID: 0}
+  isPlacable: 1
+  towerPrefab: {fileID: 3819869291727962329, guid: f59723ebb16d04908b3db23e15036a9f,
+    type: 3}
+--- !u!65 &6619418767226619932
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188685650833378}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &1287919984369488
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +225,7 @@ MeshCollider:
   m_GameObject: {fileID: 1287919984369488}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -302,7 +319,7 @@ MeshCollider:
   m_GameObject: {fileID: 1387505736019952}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -396,7 +413,7 @@ MeshCollider:
   m_GameObject: {fileID: 1434131455353318}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -490,7 +507,7 @@ MeshCollider:
   m_GameObject: {fileID: 1528490619992596}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -585,7 +602,7 @@ MeshCollider:
   m_GameObject: {fileID: 1537195548744100}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -708,7 +725,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1750311734618376}
-  m_Text: 3,0
+  m_Text: 3,3
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
