@@ -38,35 +38,70 @@ public class Waypoint : MonoBehaviour
 
     void OnMouseOver()
     {
+        if (isPlacable)
+        {
+            SetTopColor(Color.green);
+        }
+        else
+        {
+            SetTopColor(Color.red);
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
-            if (isPlacable && EnemySpawner.coin >= 10)
-            {
-                Instantiate(towerPrefab, transform.position, Quaternion.identity);
-                isPlacable = false;
-                EnemySpawner.coin = EnemySpawner.coin - 10;
-            }
-            else
-            {
-                print("Can not place here");
-            }
-            
+            PlaceTower();
         }
-        if (Input.GetMouseButtonDown(1))
+
+            //if (Input.GetMouseButtonDown(1))
+            //{
+            //    if (isPlacable && EnemySpawner.coin >= 20)
+            //    {
+            //        //Instantiate(bigTowerPrefab, transform.position, Quaternion.identity);
+            //        Instantiate(GameManager.Instance.ClickedBtn.TowerPrefab, transform.position, Quaternion.identity);
+            //        GameManager.Instance.BuyTower();
+            //        isPlacable = false;
+            //        EnemySpawner.coin = EnemySpawner.coin - 20;
+            //    }
+            //    else
+            //    {
+            //        print("Can not place here");
+            //    }
+
+            //}
+
+    }
+
+    private void OnMouseExit()
+    {
+        if (isPlacable)
         {
-            if (isPlacable && EnemySpawner.coin >= 20)
-            {
-                Instantiate(bigTowerPrefab, transform.position, Quaternion.identity);
-                isPlacable = false;
-                EnemySpawner.coin = EnemySpawner.coin - 20;
-            }
-            else
-            {
-                print("Can not place here");
-            }
-
+            SetTopColor(Color.white);
         }
+        else
+        {
+            SetTopColor(Color.yellow);
+        }
+        
+    }
 
+
+    private void PlaceTower()
+    {
+
+    if (isPlacable && EnemySpawner.coin >= 10)
+    {
+        //Instantiate(towerPrefab, transform.position, Quaternion.identity
+        Instantiate(GameManager.Instance.ClickedBtn.TowerPrefab, transform.position, Quaternion.identity);
+        GameManager.Instance.BuyTower();
+        isPlacable = false;
+        EnemySpawner.coin = EnemySpawner.coin - 10;
+    }
+    else
+    {
+        print("Can not place here");
+    }
+
+        
     }
 
 

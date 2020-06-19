@@ -54,11 +54,15 @@ public class Pathfinder : MonoBehaviour {
         path.Reverse();
     }
 
+
+
     private void SetAsPath(Waypoint waypoint)
     {
         path.Add(waypoint);
         waypoint.isPlacable = false;
-        waypoint.SetTopColor(Color.green);
+        waypoint.SetTopColor(Color.yellow);
+
+        
     }
 
     private void BreadthFirstSearch()
