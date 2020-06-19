@@ -12,8 +12,8 @@ public class EnemySpawner : MonoBehaviour
 
 
 
-    public TextMeshProUGUI coinText;
-    public static int coin;
+    //public TextMeshProUGUI coinText;
+   // public static int coin;
 
     private void Awake()
     {
@@ -22,9 +22,9 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        coinText = GameObject.Find("Canvas/Coin Text").GetComponent<TextMeshProUGUI>();
+        //coinText = GameObject.Find("Canvas/Coin Text").GetComponent<TextMeshProUGUI>();
         StartCoroutine(RepatedlySpawnEnemies());
-        coinText.text = coin.ToString();
+        //coinText.text = coin.ToString();
     }
     IEnumerator RepatedlySpawnEnemies()
     {
@@ -39,13 +39,14 @@ public class EnemySpawner : MonoBehaviour
 
     public void EnemySpawned()
     {
-        coin = coin + 10;
-        coinText.text = coin.ToString();
+        //coin = coin + 10;
+        GameManager.Instance.Currency = GameManager.Instance.Currency + 10;
+        //coinText.text = coin.ToString();
     }
 
     private void Update()
     {
-        coinText.text = coin.ToString();
+        //coinText.text = coin.ToString();
     }
 
 

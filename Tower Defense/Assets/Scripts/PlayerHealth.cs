@@ -8,6 +8,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField ]private int playerHealth = 10;
     [SerializeField] int damage = 1;
 
+    [SerializeField] ParticleSystem playerDeadPartical;
+
     public HealthBar healthBar;
 
 
@@ -22,5 +24,11 @@ public class PlayerHealth : MonoBehaviour
     {
         playerHealth = playerHealth - damage;
         healthBar.SetHealt(playerHealth);
+        if(playerHealth <= 0)
+        {
+            var vfx = Instantiate(playerDeadPartical, transform.position, Quaternion.identity);
+            vfx.Play();
+            Destroy(gameObject , .2f);
+        }
     }
 }

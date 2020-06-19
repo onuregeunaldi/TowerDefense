@@ -88,13 +88,13 @@ public class Waypoint : MonoBehaviour
     private void PlaceTower()
     {
 
-    if (isPlacable && EnemySpawner.coin >= 10)
+    if (isPlacable && GameManager.Instance.Currency >= 10)
     {
         //Instantiate(towerPrefab, transform.position, Quaternion.identity
         Instantiate(GameManager.Instance.ClickedBtn.TowerPrefab, transform.position, Quaternion.identity);
         GameManager.Instance.BuyTower();
         isPlacable = false;
-        EnemySpawner.coin = EnemySpawner.coin - 10;
+        GameManager.Instance.Currency = GameManager.Instance.Currency - 10;
     }
     else
     {
